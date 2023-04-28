@@ -40,7 +40,7 @@
 							<p>验证码：</p>
 							<div class="thrbox">
 								<input class="yzm" type="text" placeholder="" name="validNumber" id="validNumber"/>
-								<img class="yzmimg" src="/front/getValidNumber" id="validNumberImg" onclick="$('#validNumberImg').attr('src','/fore/getValidNumber?'+new Date().getTime());">
+								<img class="yzmimg" src="/getValidNumber" id="validNumberImg" onclick="$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());">
 							</div>
 						</li>
 					</ul>
@@ -62,7 +62,7 @@
 <script>
 	//初始化验证码
 	$(function(){
-		$('#validNumberImg').attr('src','/fore/getValidNumber?'+new Date().getTime());
+		$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());
 	});
 	
 	//查询
@@ -98,7 +98,7 @@
 		mergeSearchColumn();
 		
 		$.ajax({
-            url: "/front/searchUserInfo/"+683,
+            url: "/searchUserInfo/"+683,
             type:'post',
             dataType:'json',
             async:false,
@@ -109,7 +109,7 @@
             	}else{
             		if(data.message){
             			alert(data.message);
-            			$('#validNumberImg').attr('src','/fore/getValidNumber?'+new Date().getTime());
+            			$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());
             		}
             	}
             }
