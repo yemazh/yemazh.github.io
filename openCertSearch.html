@@ -90,10 +90,10 @@
 			return false;
 		}
 		
-		if(!reg.test($validNumber)){
-			alert("验证码格式不正确");
-			return false;
-		}
+		//if(!reg.test($validNumber)){
+		//	alert("验证码格式不正确");
+		//	return false;
+		//}
 	
 		mergeSearchColumn();
 		
@@ -105,7 +105,8 @@
             data:$("#userInfoForm").serialize(),
             success:function(data){
             	if(data.result=='success'){
-	            	window.location.href = "/goECertPage/"+683+"?uids="+data.message;
+	            	//window.location.href = "/goECertPage/"+683+"?uids="+data.message;
+			window.location.href = "/goECertPage.html/";
             	}else{
             		if(data.message){
             			alert(data.message);
