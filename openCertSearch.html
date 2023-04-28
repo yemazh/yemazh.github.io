@@ -70,12 +70,12 @@
 	
 		var flag = true;
 		
-		$("input[id^='query_']").each(function(){
-			if(!$(this).val()){
-				flag = false;
-				return;
-			}
-		})
+		//$("input[id^='query_']").each(function(){
+		//	if(!$(this).val()){
+		//		flag = false;
+		//		return;
+		//	}
+		//})
 		
 		if(!flag){
 			alert("请输入完整的查询条件");
