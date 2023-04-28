@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    margin: 0;
+    padding: 0;
+    /* 防止点击闪烁 */
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    /* 缩放网页，文字大小不变 */
+    -webkit-text-size-adjust:none;
+}
+html{
+    font-size: 100px;
+}
+body{
+    font-size: 14px;
+}
+
+@media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    html {
+        font-size: 117.1875px;
+    }
+}
+/* iphone6 plus */
+
+@media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    html {
+        font-size: 129.375px;
+    }
+}
+
+p,a,li,span{ font-size: 14px; color: #000;}
+
+/*页面头部*/
+.mtop{
+    padding: 0px 10px;
+    background: #5ca4ec;
+    height: 40px;
+    position: relative;
+}
+.goback{
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+    position: absolute;
+    top:12px;
+    left: 10px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.tohome{
+    display: block;
+    position: absolute;
+    top:10px;
+    left: 10px;
+}
+.toptit{
+    display: block;
+    color: #fff;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0px 25px;
+    height: 40px;
+    overflow: hidden;
+}
+.topture{
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    line-height: 40px;
+    position: absolute;
+    right: 10px;
+    top:0px;
+}
+.topture img{
+    position: relative;
+    top:5px;
+}
+/*页面头部搜索*/
+.searchbg{
+    height:22px; 
+    padding:9px 10px 9px 14px;
+    background: #d3d3d3;
+}
+.search{
+    height: 22px;
+    background: #fff;
+    line-height: 22px;
+    border-radius: 3px;
+}
+.search input{
+    height: 22px;
+    width: 88%;
+    background: none;
+    border: none;
+    color: #373737;
+    font-size: 12px;
+    padding-left: 10px;
+    float: left;
+}
+.searchimg{
+    float: right;
+    display: block;
+    width: 13px;
+    height: 13px;
+    background: url(../m_images/index_search.png) no-repeat;
+    background-size: 13px auto;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+/*footer_css*/
+.footer{
+	text-align: center;
+	padding: 0px 35px;
+}
+
+/*返回顶部*/
+.GoTop{ 
+
+}
+
+/*返回首页*/
+.GoHome{
+	
+}
+
+
