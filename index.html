@@ -1,87 +1,82 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>部门首页</title>
-    <link rel="stylesheet" href="/common.css">
-    <link rel="stylesheet" href="/index.css">
-    <link rel="stylesheet" href="/ft-carousel.css">
-    <style>
-		.example {
-			width: 100%;
-			height: 280px;
-			font-size: 40px;
-			text-align: center;
-			margin: 20px auto;
-			overflow:hidden;
-			}
-		.carousel-item {
-		    color: #fff;
-			}
-        .carousel-inner {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            height: 280px;
-			}
-	</style>
-</head>
-<body>
-<div class="head">
-    <div class="head-content">
-        <div class="head-content-rig">
-            <a href="javascript:void(0);" onclick="conditionSearch();">查询</a>
-        </div>
-    </div>
-</div>
-<div class="main">
-<div class="hot">
-    <h3 class="hot-title"><span class="hot-title-lef">热门证书</span><a href="javascript:void(0);" onclick="findAll();"><span class="hot-title-rig">全部证书</span></a></h3>
-    <ul>
-		        <li><img src="/square.png" alt=""><a href='javascript:void(0);' onclick='openCertSearch(135)'><span class="hot-lef">2019年“外研社杯”全国中学生外语素养大赛</span><span class="hot-rig">2019-09-04</span></a></li>
-		        <li><img src="/square.png" alt=""><a href='javascript:void(0);' onclick='openCertSearch(277)'><span class="hot-lef">2020年“外研社杯”全国中学生外语素养大赛</span><span class="hot-rig">2021-03-19</span></a></li>
-		        <li><img src="/square.png" alt=""><a href='javascript:void(0);' onclick='openCertSearch(432)'><span class="hot-lef">2021年“外研社杯”全国中学生外语素养大赛</span><span class="hot-rig">2022-04-18</span></a></li>
-		        <li><img src="/square.png" alt=""><a href='javascript:void(0);' onclick='openCertSearch(683)'><span class="hot-lef">第19届“外研社杯”全国中学生外语素养大赛</span><span class="hot-rig">2023-04-23</span></a></li>
-    </ul>
-</div>
-</div>
-<div class="footer">
-    <div class="footer-content">
-        <p>外语教学与研究出版社有限责任公司版权所有 Copyright © 1999-2014 FLTRP, All Rights Reserved</p>
-        <p>京ICP备11010362号-15 京公网安备 11010802020459号</p>
-    </div>
-</div>
-</body>
+<!DOCTYPE html>
+<html data-use-rem="640">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="address=no;">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<title>专题列表</title>
+		<link rel="stylesheet" href="/style/front/mobile/css/Mcommon.css" />
+		<link rel="stylesheet" href="/style/front/mobile/css/Mglobal.css" />
+		<link rel="stylesheet" href="/style/front/mobile/css/refer.css" />
+	</head>
+	<body class="inbody">
+		<script type="text/javascript" src="/style/front/mobile/js/rem.js">
+		</script>
+		<section class="whole">
+			<section class="thead fclear">
+				<a href="javascript:window.history.go(-1);" class="top_l">返回</a>
+				<span class="top_tit" style="margin-left:0px">外研社证书查询</span>
+				<a href="javascript:void(0);" onclick="openSearch();" class="top_r">查询</a>
+			</section>
+			<!--index begin-->
+			<section>
+				<div class="indexcont">
+					<ul class="ztlist fclear">
+					</ul>
+					<div class="listcont">
+						<h3 class="listcont_tit fclear">
+							<p><span class="titicon"></span>热门证书</p>
+							<a href="javascript:void(0);" onclick="findAll()">全部证书>></a>
+						</h3>
+						<ul class="textlist">
+									<li>
+										<a href="javascript:void(0);" onclick="openCertSearch(135)">
+											<h4>2019年“外研社杯”全国中学生外语素养大赛</h4>
+											<span class="time">2019-09-04</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="openCertSearch(277)">
+											<h4>2020年“外研社杯”全国中学生外语素养大赛</h4>
+											<span class="time">2021-03-19</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="openCertSearch(432)">
+											<h4>2021年“外研社杯”全国中学生外语素养大赛</h4>
+											<span class="time">2022-04-18</span>
+										</a>
+									</li>
+									<li>
+										<a href="javascript:void(0);" onclick="openCertSearch(683)">
+											<h4>第19届“外研社杯”全国中学生外语素养大赛</h4>
+											<span class="time">2023-04-23</span>
+										</a>
+									</li>
+						</ul>
+					</div>	
+				</div>
+			</section>
+			<!--index end-->
+		</section>
+	</body>
 </html>
-<script type="text/javascript" src="/style/front/web/js/jquery.min.js"></script>
-<script type="text/javascript" src="/style/front/web/js/ft-carousel.min.js"></script>
-<script type="text/javascript">
-		window.onload = function(){
-	     }
-		//查询
-		function conditionSearch(){
-			var v = $('.sse option:selected').val();
-			var vs = $("#searchVal").val();
-			if(vs == null || vs == " "){
-				alert("查询内容不能为空");
-				return;
-			}
-			window.location.href = "/front/conditionSearch?type="+v+"&value="+vs;
-		}
-		
-		//返回首页
-		function returnIndex(id){
-			window.location.href = "/front/index";
-		}
-		
-		function openCertSearch(id){
-			window.location.href = "/front/openCertSearch?cid="+id;
-		}
-		
-		function openFeatures(id){
-			window.location.href = "/front/openFeatures?fid="+id;
-		}
-		function findAll(){
-			window.location.href = "/front/findAll?cid="+21;
-		}
+<script>
+	//打开专题
+	function openFeatures(id){
+		window.location.href = "/front/openFeatures?fid="+id;
+	}
+	function openSearch(){
+		window.location.href = "/front/mobile/openSearch";
+	}
+	function findAll(){
+		window.location.href = "/front/findAll";
+	}
+	function openCertSearch(id){
+		window.location.href = "/front/openCertSearch?cid="+id;
+	}
 </script>
