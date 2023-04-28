@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html data-use-rem="640">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="address=no;">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<title>下载</title>
+		<link rel="stylesheet" href="/style/front/mobile/css/Mcommon.css" />
+		<link rel="stylesheet" href="/style/front/mobile/css/Mglobal.css" />
+		<link rel="stylesheet" href="/style/front/mobile/css/refer.css" />
+	</head>
+	<body>
+		<script type="text/javascript" src="/style/front/mobile/js/rem.js">
+		</script>
+		<section class="whole">
+			<section class="thead fclear">
+				<a href="javascript:window.history.go(-1);" class="top_l">返回</a>
+				<span class="top_tit" style="margin-left:0px">下载</span>
+			</section>
+			<!--apply begin-->
+			<section class="lucency-con">
+				<div class="result">
+						<div  class="dzzsHimg"><img id="certImg_0" src="/files/upload/certImg/683/suyang_yjth_dqs_FIES2224003E04041490.png" alt="" width="248" height="338"></div>
+							<div class="close">
+								<a href="javascript:;" onclick="certDownload(797890);">下载</a>
+								<!--a href="/front/enterErrorMsg/683">错误反馈</a-->
+							</div>
+						</div>
+				</div>
+			</section>
+			<!--apply end-->
+		</section>
+		<!-- 弹层 -->
+		<div class="mark" style="display: none;">
+			<!-- 弹层1 
+		    <div class="markcont tacc1" id="tacc1" style="display: none;">
+		    	<p class="worp" id="worp">兑换码不能为空</p>
+		    </div>-->
+		    <!-- 弹层2 -->
+		    <div class="markcont marknum tacc2">
+		        
+	    	</div>
+	    	<div class="tacc2-alert">
+		    	  <p class="intnum">请输入兑换码：<input type="text" id="codeCdk"></p>
+		    	  <div class="intbtn intbtn-sure">
+					<a href="javascript:void(0)" onclick="doCdk()">确认</a>
+		    	  </div>
+		    	  <div class="intbtn">
+					<a href="javascript:;" class="off_closs">取消</a>
+		    	  </div>
+		    	  <!--<p class="worp" id="worp" style="display: none;">兑换码不能为空</p>-->
+		    	</div>
+			<script type="text/javascript" src="/style/fore/mobile/js/jquery-1.8.2.min.js"></script>
+	    	<script>
+	    		var useId;
+	    		//点击兑换证书
+				function checkCer(ceId,uid){
+					$.ajax({
+				        type:"post",
+				        url:"/front/checkCer/"+ceId,
+				    	success:function(data){
+				        if(data.message == 'noneed'){
+				            	window.location.href="/front/toAddress/"+ceId+"/"+uid;
+				            }else{
+				                $("#codeCdk").val("");
+				                $(".mark>div").hide();
+				                $(".mark .tacc2").show();
+				                $(".mark .tacc2-alert").show();
+				                $(".mark").show();
+				                useId = uid;
+				            }
+				        }
+				    })
+				}
+				
+				function doCdk(){
+					var codeStr = document.getElementById("codeCdk").value;
+					if(codeStr!=null &&　codeStr!=""){
+						$.ajax({
+							type:"post",
+							url:"/front/checkOut/683",
+							data:{"code":codeStr},
+							success:function(data){
+									if(data!=null){
+										if(data.message.split("_")[1] == 'success'){
+											$(".mark").hide();
+											window.location.href = "/front/toAddress?code="+codeStr+"&uid="+useId;
+										}
+										else if(data.message.split("_")[0] ==  'toIndex'){
+											alert(data.message.split("_")[1]);
+										}
+										else if(data.message.split("_")[0] ==  'failOther'){
+											alert(data.message.split("_")[1]);
+										}
+										else if(data.message.split("_")[0] ==  'failOwn'){
+											alert(data.message.split("_")[1]);
+											var code = document.getElementById("codeCdk").value;
+											window.location.href = '/front/chekAddress/'+code;
+										}else{
+                                            $(".mark").hide();
+										}
+									}
+								}
+							});
+					}else{
+						alert("兑换码不能为空");
+						$(".mark .tacc1").css('display','block');
+					}
+				}
+	    	</script>
+		</div>
+		<!-- 弹层-end -->
+	</body>
+</html>
+<script>
+	// 弹层显示隐藏
+	$(function () {
+		//$(".mduihuntc").bind('click',function () {
+			//$(".mark").show();
+		//})
+		//return false;
+		//$(".mark").bind('click',function () {
+		   // $(".mark").hide();
+		//});
+		//$(".mark .tacc2").bind('click', function(e) {
+		  //  return false;
+		//});
+		$(".off_closs").bind('click',function () {
+			$(".mark").hide();
+		});
+		//替换图片路径为压缩路径
+		$("img[id^='certImg_']").each(function(){
+			$(this).attr("src",$(this).attr("src").replace('certImg','compressimg'))
+		});
+	})
+	
+	function certDownload(uid){
+		$.ajax({
+		url: '/front/certDownload/'+uid,
+		type : 'post',
+		dataType : 'json',
+		async : false,
+		success:function(data){
+	    	if(data.result=='success'){
+	        	window.location.href = "/components/file/download/"+data.item;
+	        	}else{
+	        		alert(data.message);
+	        	}
+	    	}
+	 	});
+	}
+</script>
