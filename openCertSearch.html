@@ -40,7 +40,7 @@
 							<p>验证码：</p>
 							<div class="thrbox">
 								<input class="yzm" type="text" placeholder="" name="validNumber" id="validNumber"/>
-								<img class="yzmimg" src="/getValidNumber.jpg" id="validNumberImg" onclick="$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());">
+								<img class="yzmimg" src="/getValidNumber?"+new Date().getTime() id="validNumberImg" onclick="$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());">
 							</div>
 						</li>
 					</ul>
