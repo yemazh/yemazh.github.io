@@ -40,7 +40,7 @@
 							<p>验证码：</p>
 							<div class="thrbox">
 								<input class="yzm" type="text" placeholder="" name="validNumber" id="validNumber"/>
-								<img class="yzmimg" src="/getValidNumber" id="validNumberImg" onclick="$('#validNumberImg').attr('src','/fore/getValidNumber?'+new Date().getTime());">
+								<img class="yzmimg" src="/getValidNumber" id="validNumberImg" onclick="$('#validNumberImg').attr('src','http://cert.fltrp.com/fore/getValidNumber?'+new Date().getTime());">
 								<!--span id="validNumberImg" style="font-size: 30px;"></span-->
 							</div>
 						</li>
@@ -63,7 +63,7 @@
 <script>
 	//初始化验证码
 	$(function(){
-		$('#validNumberImg').attr('src','/fore/getValidNumber?'+new Date().getTime());
+		$('#validNumberImg').attr('src','http://cert.fltrp.com/fore/getValidNumber?'+new Date().getTime());
 		//var randnum=Math.floor(Math.random()*(9999-1000))+1000
 		//document.getElementById("validNumberImg").innerHTML=randnum
 	});
