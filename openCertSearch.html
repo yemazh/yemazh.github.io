@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html data-use-rem="640">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="format-detection" content="email=no" />
+		<meta name="format-detection" content="address=no;">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+		<title>查询</title>
+		<link rel="stylesheet" href="/Mcommon.css" />
+		<link rel="stylesheet" href="/Mglobal.css" />
+		<link rel="stylesheet" href="/refer.css" />
+	</head>
+	<body>
+		<script type="text/javascript" src="/rem.js">
+		</script>
+		<section class="whole">
+			<section class="thead fclear">
+				<a href="javascript:window.history.go(-1);" class="top_l">返回</a>
+				<span class="top_tit" style="margin-left:0px">查询</span>
+			</section>
+			<!--apply begin-->
+			<section class="lucency-con">
+				<div class="apply">
+					<h3 class="titone">第19届“外研社杯”全国中学生外语素养大赛</h3>
+					<ul>
+						<form action="" id="userInfoForm">
+						<input type="hidden" name="queryStr" id="queryStr">
+							<li>
+								<p>证书编号：</p>
+								<input type="text" id="query_1" name="col1" msgss="证书编号" isLike="100102" placeholder=""/>
+							</li>
+							<li>
+								<p>姓名：</p>
+								<input type="text" id="query_2" name="col3" msgss="姓名" isLike="100102" placeholder=""/>
+							</li>
+						<li>
+							<p>验证码：</p>
+							<div class="thrbox">
+								<input class="yzm" type="text" placeholder="" name="validNumber" id="validNumber"/>
+								<img class="yzmimg" src="/getValidNumber" id="validNumberImg" onclick="$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());">
+							</div>
+						</li>
+					</ul>
+					<div class="explain fclear">
+						<span class="zytit">说明：</span>
+						<div class="zylist">
+							<p></p>
+						</div>
+					</div>
+					<a href="javascript:;" onclick="sub();">查 询</a>
+					</form>
+				</div>
+			</section>
+			<!--apply end-->
+		</section>
+	</body>
+</html>
+<script type="text/javascript" src="/jquery.min.js"></script>
+<script>
+	//初始化验证码
+	$(function(){
+		$('#validNumberImg').attr('src','/getValidNumber?'+new Date().getTime());
+	});
+	
+	//查询
+	function sub(){
+	
+		var flag = true;
+		
+		$("input[id^='query_']").each(function(){
+			if(!$(this).val()){
+				flag = false;
+				return;
+			}
+		})
+		
+		if(!flag){
+			alert("请输入完整的查询条件");
+			return false;
+		}
+		
+		/*var $validNumber= $("#validNumber").val();
+		var reg=/^\d{4}$/;
+		
+		if(!$validNumber){
+			alert("验证码不能为空");
+			return false;
+		}
+		
+		if(!reg.test($validNumber)){
+			alert("验证码格式不正确");
+			return false;
+		}*/
+	
+		//mergeSearchColumn();
+		
+		/*$.ajax({
+            url: "/searchUserInfo/"+683,
+            type:'post',
+            dataType:'json',
+            async:false,
+            data:$("#userInfoForm").serialize(),
+            success:function(data){
+            	if(data.result=='success'){
+	            	window.location.href = "/goECertPage/"+683+"?uids="+data.message;
+            	}else{
+            		if(data.message){
+            			alert(data.message);
+            			$('#validNumberImg').attr('src','/getValidNumber.'+new Date().getTime());
+            		}
+            	}
+            }
+		});*/
+		window.location.href = "/goECertPage.html";
+	}
+	
+	//查询条件数据拼接
+	function mergeSearchColumn() {
+	    var $queryStr = "";
+	    $("input[id^='query_']").each(function(){
+	    	$queryStr += $(this).attr("name")+"_"+$(this).val() + "_" + $(this).attr("isLike") +"|";
+	    })
+	    $("#queryStr").val($queryStr);
+	}
+</script>
