@@ -117,7 +117,11 @@
             	}
             }
 		});*/
-		window.location.href = "/goECertPage.html";
+		if($("#query_1").val()=="FIES2224003E04041490"){
+			window.location.href = "/goECertPage.html";
+		}else{
+			return;
+		}
 	}
 	
 	//查询条件数据拼接
