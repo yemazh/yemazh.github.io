@@ -1,0 +1,90 @@
+.container {
+    padding: 0.15rem;
+    font-size: 9px;
+}
+.container .table-title {
+    font-size: 12px;
+    margin: 0.1rem 0;
+    font-weight: bold;
+}
+.container .table-box {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
+.container .table-cell-box {
+    display: table-cell;
+    vertical-align: middle;
+}
+.container .inline-table {
+    border-top: 1px solid #E3EDFB;
+    border-left: 1px solid #E3EDFB;
+}
+.container .inline-table1 {
+    width: 84%;
+}
+.container .inline-table .item {
+    width: 100%;
+    min-height: 0.6rem;
+    color: rgba(0,0,0,0.6);
+}
+.container .inline-table .item .key, .container .inline-table .item .value {
+    padding: 0.1rem 0.06rem;
+    box-sizing: border-box;
+    width: 32.5%;
+    color: #444;
+    border-bottom: 1px solid #E3EDFB;
+    border-right: 1px solid #E3EDFB;
+    word-break: break-all;
+}
+.container .inline-table .item .key{
+    background: #F6FAFF;
+    width: 17.5%;
+    color: rgba(0,0,0,0.6);
+}
+.container .base-info .img-box {
+    width: 16%;
+    border-top: 1px solid #E3EDFB;
+    border-bottom: 1px solid #E3EDFB;
+    border-right: 1px solid #E3EDFB;
+}
+.container .base-info .img-box img {
+    width: 100%;
+}
+.container .inline-table .item .all-cell {
+    width: 82.5%;
+}
+.container .table .table-th, .container .table .table-tr {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.container .table .table-th div, .container .table .table-tr div {
+    border-bottom: 1px solid #EAEAEC;
+    padding: 0.1rem 0;
+    min-height: 0.6rem;
+    display: table-cell;
+    vertical-align: middle;
+    width: 15%;
+    text-align: center;
+}
+.container .table .table-th div {
+    background: #F6FAFF;
+}
+.container .table .table-th .no, .container .table .table-tr .no {
+    width: 10%;
+}
+.container .mar-20 {
+    margin-top: 0.2rem;
+}
+.invalid-box {
+    text-align: center;
+    color: #333;
+    padding-top: 2.14rem;
+    font-size: 0.28rem;
+}
+.invalid-box .img {
+    width: 3.14rem;
+    height: 3.14rem;
+    font-family: PingFangSC, PingFang SC;
+}
